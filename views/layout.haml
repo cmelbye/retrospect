@@ -1,0 +1,19 @@
+!!! Strict
+%html{ :lang => "en", :"xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", :"http-equiv" => "Content-Type" }
+    %meta{ :content => "en", :"http-equiv" => "Content-Language" }
+    %title= "#{@title.last} | retrospect"
+    - stylesheets(:reset, :buttons, :retrospect)
+
+  %body
+    #header
+      %h1= @title.join(" / ")
+      %address.watermark
+        reviewed in
+        %a{ :href => "http://retrospect.yourwiki.net", :title => "The fun code review server" } retrospect
+    #content= yield
+    #footer
+      Hey there!
+      %a{ :href => root_path("login") } Log In
+      if you have a user
